@@ -14,31 +14,26 @@ module.exports = {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },
     },
     {
       env: {
-        jest: true
+        jest: true,
       },
-      files: [
-        "**/*.spec.js",
-        "**/*.spec.jsx",
-        "**/*.test.js",
-        "**/*.test.jsx"
-      ]
-    }
+      files: ['**/*.spec.js', '**/*.spec.jsx', '**/*.test.js', '**/*.test.jsx'],
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off"
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+    // TODO: it's a good practice use prop-types validation, so we should remove this
+    'react/prop-types': 0,
   },
 };

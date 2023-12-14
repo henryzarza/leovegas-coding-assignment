@@ -38,7 +38,7 @@ function Movie({ movie, viewTrailer, closeCard }) {
                       release_date: movie.release_date?.substring(0, 4),
                       poster_path: movie.poster_path,
                       title: movie.title,
-                    }),
+                    })
                   )
                 }
               >
@@ -66,7 +66,7 @@ function Movie({ movie, viewTrailer, closeCard }) {
                       release_date: movie.release_date?.substring(0, 4),
                       poster_path: movie.poster_path,
                       title: movie.title,
-                    }),
+                    })
                   )
                 }
               >
