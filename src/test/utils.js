@@ -21,7 +21,7 @@ export function renderWithProviders(
       preloadedState,
     }),
     ...renderOptions
-  } = {},
+  } = {}
 ) {
   setupListeners(store.dispatch);
 

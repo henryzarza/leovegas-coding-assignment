@@ -9,7 +9,7 @@ describe('MovieSlice test', () => {
         movies: [],
         fetchStatus: '',
       },
-      action,
+      action
     );
     expect(action).toEqual({ type: fetchMovies.pending });
   });
@@ -24,7 +24,7 @@ describe('MovieSlice test', () => {
         movies: [],
         fetchStatus: '',
       },
-      action,
+      action
     );
     expect(action.payload).toBeTruthy();
   });
@@ -36,7 +36,7 @@ describe('MovieSlice test', () => {
         movies: [],
         fetchStatus: '',
       },
-      action,
+      action
     );
     expect(action).toEqual({ type: fetchMovies.rejected });
   });
