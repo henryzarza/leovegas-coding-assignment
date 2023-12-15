@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from './data/store';
 import './index.css';
+import 'reactjs-popup/dist/index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
