@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import starredSlice from '../data/starredSlice';
-import Movie from './Movie';
+import Movie from '../components/Movie';
 import '../styles/starred.scss';
 
 function Starred({ viewTrailer }) {
-  const state = useSelector((state) => state);
-  const { starred } = state;
+  const { starred } = useSelector((state) => state);
   const { clearAllStarred } = starredSlice.actions;
   const dispatch = useDispatch();
 
@@ -22,7 +21,11 @@ function Starred({ viewTrailer }) {
           </div>
 
           <footer className='text-center'>
-            <button className='btn btn-primary' onClick={() => dispatch(clearAllStarred())}>
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={() => dispatch(clearAllStarred())}
+            >
               Remove all starred
             </button>
           </footer>
