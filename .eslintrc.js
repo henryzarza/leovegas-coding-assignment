@@ -35,5 +35,13 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     // TODO: it's a good practice use prop-types validation, so we should remove this
     'react/prop-types': 0,
+    // this is for redux state assigment linter error
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 };
