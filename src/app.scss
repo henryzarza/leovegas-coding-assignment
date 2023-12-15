@@ -12,5 +12,44 @@
 }
 
 .main-container {
-  padding: 3rem 1rem 1rem;
+  padding: 6rem 1rem 1rem;
+}
+
+
+@keyframes anvil {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.popup-content {
+  animation: anvil $transition-duration $transition-function forwards;
+  background-color: $black;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  width: auto;
+}
+
+.video-player {
+  max-width: 100%;
+  height: 60vw;
+}
+
+.btn-close-modal {
+  align-self: end;
+  margin-bottom: 0.5rem;
+}
+
+.main-title {
+  color: $white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
