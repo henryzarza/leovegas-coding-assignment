@@ -10,7 +10,7 @@ const starredSlice = createSlice({
       state.starredMovies = [action.payload, ...state.starredMovies];
     },
     unstarMovie: (state, action) => {
-      const indexOfId = state.starredMovies.findIndex((key) => key.id === action.payload.id);
+      const indexOfId = state.starredMovies.findIndex((key) => key.id === action.payload);
       state.starredMovies.splice(indexOfId, 1);
     },
     clearAllStarred: (state) => {
