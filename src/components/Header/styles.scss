@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+
+.header {
+  background-color: rgba($black, 0.85);
+  color: $white;
+  min-height: 3rem;
+  left: 0;
+  padding: 1rem 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-nav-link {
+  border-radius: 0;
+  border-color: $primary-color;
+  color: $primary-color;
+  font-weight: 600;
+  position: relative;
+  
+  &:is(:hover, :focus) {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.star-number {
+  align-items: center;
+  animation: anvil $transition-duration $transition-function forwards;
+  border-radius: 50%;
+  background-color: $orange-peel;
+  color: $white;
+  display: flex;
+  font-size: 0.85rem;
+  font-weight: 600;
+  height: 2rem;
+  justify-content: center;
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  width: 2rem;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.input-search-container {
+  flex: 1;
+  margin: 0 0.5rem;
+
+  input {
+    border-radius: 0;
+    max-width: 25rem;
+    margin: 0 auto;
+  }
+}

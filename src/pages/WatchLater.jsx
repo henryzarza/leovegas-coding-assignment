@@ -2,46 +2,43 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import watchLaterSlice from '../data/watchLaterSlice';
 import Movie from '../components/Movie';
-import '../styles/starred.scss';
 
-function WatchLater({ viewTrailer }) {
+function WatchLater() {
   const { watchLater } = useSelector((state) => state);
   const { removeAllWatchLater } = watchLaterSlice.actions;
   const dispatch = useDispatch();
 
   return (
-    <div className='starred' data-testid='watch-later-div'>
-      {watchLater.watchLaterMovies.length > 0 && (
-        <div data-testid='watch-later-movies' className='starred-movies'>
-          <h6 className='header'>Watch Later List</h6>
-          <div className='row'>
+    <>
+      <h2 className='main-title'>Watch Later List</h2>
+      {watchLater.watchLaterMovies.length > 0 ? (
+        <>
+          <div className='movies-container mb-4' data-testid='watch-later-div'>
             {watchLater.watchLaterMovies.map((movie) => (
-              <Movie movie={movie} key={movie.id} viewTrailer={viewTrailer} />
+              <Movie movie={movie} key={movie.id} />
             ))}
           </div>
-
-          <footer className='text-center'>
-            <button
-              type='button'
-              className='btn btn-primary'
-              onClick={() => dispatch(removeAllWatchLater())}
-            >
-              Empty list
-            </button>
-          </footer>
-        </div>
-      )}
-
-      {watchLater.watchLaterMovies.length === 0 && (
-        <div className='text-center empty-cart'>
-          <i className='bi bi-heart' />
-          <p>You have no movies saved to watch later.</p>
-          <p>
-            Go to <Link to='/'>Home</Link>
+          <button
+            type='button'
+            className='btn btn-danger'
+            onClick={() => dispatch(removeAllWatchLater())}
+          >
+            <i className='bi bi-trash3 me-1' />
+            Empty List
+          </button>
+        </>
+      ) : (
+        <div className='text-white'>
+          <p className='fs-5 mb-3'>
+            <i className='bi bi-stopwatch fs-3 me-2' />
+            You don&apos;t have movies saved to watch later.
           </p>
+          <Link to='/' className='btn btn-primary'>
+            Go to Home
+          </Link>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
