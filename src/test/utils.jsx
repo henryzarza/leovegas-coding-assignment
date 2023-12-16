@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -7,7 +6,9 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import moviesSlice from '../data/moviesSlice';
 import starredSlice from '../data/starredSlice';
 import watchLaterSlice from '../data/watchLaterSlice';
+import AppContext from '../contexts';
 
+// eslint-disable-next-line import/prefer-default-export
 export function renderWithProviders(
   ui,
   {
@@ -26,9 +27,14 @@ export function renderWithProviders(
   setupListeners(store.dispatch);
 
   function Wrapper({ children }) {
+    // eslint-disable-next-line no-undef
+    const mockWatchTrailerFn = jest.fn();
+
     return (
       <Provider store={store}>
-        <BrowserRouter>{children}</BrowserRouter>
+        <AppContext.Provider value={mockWatchTrailerFn}>
+          <BrowserRouter>{children}</BrowserRouter>
+        </AppContext.Provider>
       </Provider>
     );
   }

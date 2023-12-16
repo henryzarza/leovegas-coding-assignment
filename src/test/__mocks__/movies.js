@@ -1,4 +1,5 @@
-export const moviesMock = [
+// eslint-disable-next-line import/prefer-default-export
+export const MOCK_MOVIES = [
   {
     id: '27205',
     overview: 'Cobb, a skilled thief who commits corporate espionage by infiltrating...',
