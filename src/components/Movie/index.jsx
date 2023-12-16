@@ -1,12 +1,13 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import starredSlice from '../../data/starredSlice';
 import watchLaterSlice from '../../data/watchLaterSlice';
 import placeholder from '../../assets/not-found-500X750.jpeg';
 import './styles.scss';
+import AppContext from '../../contexts';
 
-// TODO: change viewTrailer to watchTrailer
-function Movie({ movie, viewTrailer }) {
+function Movie({ movie }) {
+  const watchMovieTrailer = useContext(AppContext);
   const { starred, watchLater } = useSelector((state) => state);
   const { starMovie, unstarMovie } = starredSlice.actions;
   const { addToWatchLater, removeFromWatchLater } = watchLaterSlice.actions;
@@ -70,7 +71,11 @@ function Movie({ movie, viewTrailer }) {
         <span className='movie-card__info_year'>
           Release: {movie.release_date?.substring(0, 4)}
         </span>
-        <button type='button' className='btn btn-primary' onClick={() => viewTrailer(movie)}>
+        <button
+          type='button'
+          className='btn btn-primary'
+          onClick={() => watchMovieTrailer(movie.id)}
+        >
           Watch Trailer
         </button>
       </div>

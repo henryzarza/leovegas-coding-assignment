@@ -6,7 +6,7 @@ import Movie from '../../components/Movie';
 import { fetchMovies } from '../../data/moviesSlice';
 import './styles.scss';
 
-function Movies({ viewTrailer }) {
+function Movies() {
   const { movies } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
@@ -21,7 +21,7 @@ function Movies({ viewTrailer }) {
   return (
     <div data-testid='movies' className='movies-container'>
       {movies.movies.results?.map((movie) => (
-        <Movie movie={movie} key={movie.id} viewTrailer={viewTrailer} />
+        <Movie movie={movie} key={movie.id} />
       ))}
     </div>
   );

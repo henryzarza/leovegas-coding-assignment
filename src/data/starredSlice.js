@@ -7,7 +7,7 @@ const starredSlice = createSlice({
   },
   reducers: {
     starMovie: (state, action) => {
-      state.starredMovies = [action.payload, ...state.starredMovies];
+      state.starredMovies = [...state.starredMovies, action.payload];
     },
     unstarMovie: (state, action) => {
       const indexOfId = state.starredMovies.findIndex((key) => key.id === action.payload);
