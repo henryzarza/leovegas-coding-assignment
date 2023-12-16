@@ -53,3 +53,18 @@
   font-weight: 700;
   margin-bottom: 1rem;
 }
+
+.loader {
+  animation: loading 1s infinite linear;
+  aspect-ratio: 1;
+  background: 
+    radial-gradient(farthest-side, $white 94%, transparent) top/8px 8px no-repeat,
+    conic-gradient(transparent 30%, $white);
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), $black 0);
+  width: 50px;
+}
+
+@keyframes loading { 
+  100%{ transform: rotate(1turn) }
+}

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useSearchParams, createSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Popup from 'reactjs-popup';
 
@@ -18,14 +18,21 @@ function App() {
   const [videoKey, setVideoKey] = useState();
   const [isModalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [, setSearchParams] = useSearchParams();
 
   const searchMovies = (query) => {
     navigate('/');
-    dispatch(fetchMovies(query === '' ? ENDPOINT_DISCOVER : `${ENDPOINT_SEARCH}&query=${query}`));
+    if (query) {
+      dispatch(fetchMovies(`${ENDPOINT_SEARCH}&query=${query}`));
+      setSearchParams(createSearchParams({ search: query }));
+    } else {
+      dispatch(fetchMovies(ENDPOINT_DISCOVER));
+      setSearchParams();
+    }
   };
 
   const watchMovieTrailer = useCallback(async (movieId) => {
-    // TODO: implement a cache with Context to avoid making a requests for a movie the user previously requested
+    // TODO: implement a cache with Context to avoid requesting for a movie that the user already watched the trailer
     const videoData = await fetch(
       `${ENDPOINT}/movie/${movieId}?api_key=${API_KEY}&append_to_response=videos`
     ).then((response) => response.json());
