@@ -51,7 +51,7 @@ function Movie({ movie }) {
           data-testid='star-movie'
           onClick={handleStarMovie}
         >
-          <i className='bi bi-star-fill' data-testid='star-fill' />
+          <i className='bi bi-star-fill' />
         </button>
         <button
           type='button'

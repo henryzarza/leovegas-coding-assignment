@@ -24,7 +24,7 @@ function Header({ searchMovies }) {
   return (
     <header className='header'>
       <div className='container d-flex'>
-        <NavLink to='/' className='btn btn-outline-primary btn-nav-link' data-testid='home'>
+        <NavLink to='/' className='btn btn-outline-primary btn-nav-link' data-testid='nav-home'>
           <i className='bi bi-film me-2' />
           Movieland
         </NavLink>
@@ -51,7 +51,11 @@ function Header({ searchMovies }) {
             <i className='bi bi-star-fill me-1' /> Starred
             {!!starredMovies.length && <sup className='star-number'>{starredMovies.length}</sup>}
           </NavLink>
-          <NavLink to='/watch-later' className='btn btn-outline-primary btn-nav-link'>
+          <NavLink
+            to='/watch-later'
+            data-testid='nav-watch-later'
+            className='btn btn-outline-primary btn-nav-link'
+          >
             <i className='bi bi-stopwatch-fill me-1' /> Watch Later
           </NavLink>
         </nav>
