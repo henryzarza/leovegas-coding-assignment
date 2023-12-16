@@ -11,7 +11,15 @@ const moviesSlice = createSlice({
     movies: [],
     fetchStatus: '',
   },
-  reducers: {},
+  reducers: {
+    addMovies: (state, action) => {
+      state.movies = {
+        ...state.movies,
+        page: action.payload.page,
+        results: [...state.movies.results, ...action.payload.results],
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMovies.fulfilled, (state, action) => {
