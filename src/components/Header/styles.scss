@@ -28,6 +28,10 @@
     background-color: $primary-color;
     color: $white;
   }
+
+  @media screen and (max-width: 767px) {
+    flex: 1;
+  }
 }
 
 .star-number {
@@ -63,6 +67,23 @@
   input {
     border-radius: 0;
     max-width: 25rem;
-    margin: 0 auto;
+    margin: 0 auto; 
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+
+    input {
+      max-width: 100%;
+    }
+  }
+}
+
+.header__content {
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

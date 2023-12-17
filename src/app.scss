@@ -13,6 +13,10 @@
 
 .main-container {
   padding: 6rem 1rem 1rem;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 10rem;
+  }
 }
 
 

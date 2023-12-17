@@ -23,7 +23,7 @@ function Header({ searchMovies }) {
 
   return (
     <header className='header'>
-      <div className='container d-flex'>
+      <div className='container header__content'>
         <NavLink to='/' className='btn btn-outline-primary btn-nav-link' data-testid='nav-home'>
           <i className='bi bi-film me-2' />
           Movieland
