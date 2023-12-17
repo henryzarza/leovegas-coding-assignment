@@ -53,20 +53,22 @@ function Movies() {
     );
   }
 
-  return movies.movies.results?.length > 0 ? (
+  return (
     <>
-      <div data-testid='movies' className='movies-container'>
-        {movies.movies.results.map((movie) => (
-          <Movie movie={movie} key={movie.id} />
-        ))}
-      </div>
+      {movies.movies.results?.length > 0 ? (
+        <div data-testid='movies' className='movies-container'>
+          {movies.movies.results.map((movie) => (
+            <Movie movie={movie} key={movie.id} />
+          ))}
+        </div>
+      ) : (
+        <p className='fs-5 mb-3 text-white'>
+          <i className='bi bi-film fs-3 me-2' />
+          There are no movies to show.
+        </p>
+      )}
       <div ref={refIntersection} />
     </>
-  ) : (
-    <p className='fs-5 mb-3 text-white'>
-      <i className='bi bi-film fs-3 me-2' />
-      There are no movies to show.
-    </p>
   );
 }
 
