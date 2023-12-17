@@ -1,0 +1,74 @@
+@import "./styles/variables";
+
+#root {
+  background: linear-gradient(0deg, $primary-color 20%, #050b45 100%) no-repeat;
+  min-height: 100vh;  
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  padding: 6rem 1rem 1rem;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 10rem;
+  }
+}
+
+
+@keyframes anvil {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.popup-content {
+  animation: anvil $transition-duration $transition-function forwards;
+  background-color: $black;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  width: auto;
+}
+
+.video-player {
+  max-width: 100%;
+  height: 60vw;
+}
+
+.btn-close-modal {
+  align-self: end;
+  margin-bottom: 0.5rem;
+}
+
+.main-title {
+  color: $white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.loader {
+  animation: loading 1s infinite linear;
+  aspect-ratio: 1;
+  background: 
+    radial-gradient(farthest-side, $white 94%, transparent) top/8px 8px no-repeat,
+    conic-gradient(transparent 30%, $white);
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), $black 0);
+  width: 50px;
+}
+
+@keyframes loading { 
+  100%{ transform: rotate(1turn) }
+}
